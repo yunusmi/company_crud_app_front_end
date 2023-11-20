@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Управление продажами</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link btn link-primary" href="index.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn link-primary" href="employees.html">Сотрудники</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn link-primary" href="products.html">Продукты</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link btn link-primary" href="sales.html">Продажи <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn link-primary" href="branches.html">Филиалы</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="display-4">Управление продажами</h1>
+
+        <form id="saleForm" class="mb-4">
+            <div class="form-row">
+                <div class="col">
+                    <select class="form-control" id="product_id" required>
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-control" id="employee_id" required>
+                    </select>
+                </div>
+                <div class="col">
+                    <input type="date" class="form-control" id="sale_date" required>
+                </div>
+                <div class="col">
+                    <input type="number" class="form-control" id="quantity" placeholder="Количество" required>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Добавить продажу</button>
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Продукт</th>
+                    <th scope="col">Сотрудник</th>
+                    <th scope="col">Дата</th>
+                    <th scope="col">Количество</th>
+                    <th scope="col">Действия</th>
+                </tr>
+            </thead>
+            <tbody id="salesTableBody">
+            </tbody>
+        </table>
+    </div>
+
+    <div class="modal fade" id="deleteSaleModal" tabindex="-1" role="dialog" aria-labelledby="deleteSaleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteSaleModalLabel">Подтвердите удаление продажи</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Вы уверены, что хотите удалить эту продажу?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-danger" id="confirmDelete">Да</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editSaleModal" tabindex="-1" role="dialog" aria-labelledby="editSaleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editSaleModalLabel">Изменить продажу</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editSaleForm">
+                        <input type="hidden" id="editSaleId" value="">
+                        <div class="form-group">
+                            <label for="editProduct">Продукт</label>
+                            <select class="form-control" id="editProduct" required>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editEmployee">Сотрудник</label>
+                            <select class="form-control" id="editEmployee" required>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editSaleDate">Дата</label>
+                            <input type="date" class="form-control" id="editSaleDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editQuantity">Количество</label>
+                            <input type="number" class="form-control" id="editQuantity" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-primary" id="saveChangesButton">Сохранить изменения</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Успешно</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Закрыть">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="successModalBody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="sales.js"></script>
+</body>
+</html>

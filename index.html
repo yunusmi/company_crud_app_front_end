@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Главная</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link btn link-primary" href="#">Главная <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn link-primary" href="employees.html">Сотрудники</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn link-primary" href="products.html">Продукты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn link-primary" href="sales.html">Продажи</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn link-primary" href="branches.html">Филиалы</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2 class="display-4" align="center">Добро пожаловать в приложение</h2>
+        <p class="lead" align="center">Выберите одну из опций в меню для начала работы.</p>
+        
+        <h2 class="my-4" align="center">Количество продаж</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Название продукта</th>
+                    <th scope="col">Имя сотрудника</th>
+                    <th scope="col">Дата продажи</th>
+                    <th scope="col">Количество</th>
+                </tr>
+            </thead>
+            <tbody id="salesTableBody">
+
+            </tbody>
+        </table>
+        <br>
+
+        <h2 class="my-4" align="center">Информация о сотрудниках</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Филиал</th>
+                </tr>
+            </thead>
+            <tbody id="employeesTableBody">
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

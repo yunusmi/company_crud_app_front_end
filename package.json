@@ -1,0 +1,29 @@
+{
+  "name": "CRUD-application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "api": "^6.0.0",
+    "electron": "^25.2.0",
+    "electron-builder": "^24.6.4"
+  },
+  "build": {
+    "appId": "crud.app.api",
+    "productName": "CRUD application",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  }
+}
