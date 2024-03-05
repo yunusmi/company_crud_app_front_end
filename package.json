@@ -1,7 +1,7 @@
 {
-  "name": "CRUD-application",
-  "version": "1.0.0",
-  "description": "",
+  "name": "Company-CRUD-application",
+  "version": "1.0.1",
+  "description": "Frontend application to manage company's data on remote server",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "api": "^6.0.0",
     "electron": "^25.2.0",
@@ -18,7 +18,7 @@
   },
   "build": {
     "appId": "crud.app.api",
-    "productName": "CRUD application",
+    "productName": "Client to manage company CRUD operations",
     "directories": {
       "output": "dist"
     },
