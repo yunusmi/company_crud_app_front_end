@@ -1,37 +1,36 @@
 const { app, BrowserWindow } = require('electron');
 
 function createWindow() {
-    const win = new BrowserWindow({
-        width: 1150,
-        height: 900,
-        webPreferences: {
-        nodeIntegration: true
-        }
-    });
+  const win = new BrowserWindow({
+    width: 1150,
+    height: 900,
+    webPreferences: {
+      nodeIntegration: true,
+    },
+  });
 
-    win.setMenu(null);
+  win.setMenu(null);
 
-    win.loadFile('index.html');
-    
-    win.webContents.on('before-input-event', (event, input) => {
-        if (input.control && input.shift && input.key === 'I') {
-            event.preventDefault();
-        }
-    });
+  win.loadFile('src/index.html');
+
+  //   win.webContents.on('before-input-event', (event, input) => {
+  //     if (input.control && input.shift && input.key === 'I') {
+  //       event.preventDefault();
+  //     }
+  //   });
+  win.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
-    createWindow();
+  createWindow();
 
-    globalShortcut.register('CommandOrControl+Shift+I', () => {
-
-    });
+  globalShortcut.register('CommandOrControl+Shift+I', () => {});
 });
 
 app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') app.quit();
+  if (process.platform !== 'darwin') app.quit();
 });
 
 app.on('activate', function () {
-    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });

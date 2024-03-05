@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/css/styles.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Управление филиалами</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a
+        class="navbar-brand"
+        href="#"
+      ></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse"
+        id="navbarNav"
+      >
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              class="nav-link btn link-primary"
+              href="index.html"
+              >Главная</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link btn link-primary"
+              href="employees.html"
+              >Сотрудники</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link btn link-primary"
+              href="products.html"
+              >Продукты</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link btn link-primary"
+              href="sales.html"
+              >Продажи</a
+            >
+          </li>
+          <li class="nav-item active">
+            <a
+              class="nav-link btn link-primary"
+              href="branches.html"
+              >Филиалы <span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mt-4">
+      <h2 class="display-4">Управление филиалами</h2>
+
+      <form
+        id="branchForm"
+        class="mb-4"
+      >
+        <div class="form-row">
+          <div class="col">
+            <input
+              type="text"
+              class="form-control"
+              id="branchName"
+              placeholder="Название филиала"
+              required
+            />
+          </div>
+          <div class="col">
+            <button
+              type="submit"
+              class="btn btn-primary"
+            >
+              Создать филиал
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Название филиала</th>
+            <th scope="col">Действия</th>
+          </tr>
+        </thead>
+        <tbody id="branchesTableBody"></tbody>
+      </table>
+    </div>
+
+    <div
+      class="modal fade"
+      id="deleteBranchModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="deleteBranchModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="deleteBranchModalLabel"
+            >
+              Подтвердите удаление филиала
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Закрыть"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Вы уверены, что хотите удалить этот филиал?
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Отмена
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              id="confirmDelete"
+            >
+              Да
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="editBranchModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="editBranchModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="editBranchModalLabel"
+            >
+              Изменить филиал
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Закрыть"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="editBranchForm">
+              <input
+                type="hidden"
+                id="editBranchId"
+              />
+              <div class="form-group">
+                <label for="editBranchName">Название филиала</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="editBranchName"
+                  required
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Отмена
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="saveChangesButton"
+            >
+              Сохранить изменения
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="employeesModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="employeesModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="employeesModalLabel"
+            >
+              Сотрудники филиала
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Закрыть"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Имя</th>
+                  <th scope="col">Фамилия</th>
+                </tr>
+              </thead>
+              <tbody id="employeesTableBody"></tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Закрыть
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="productsModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="productsModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="productsModalLabel"
+            >
+              Товары филиала
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Закрыть"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Название товара</th>
+                  <th scope="col">Цена</th>
+                </tr>
+              </thead>
+              <tbody id="productsTableBody"></tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Закрыть
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="successModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="successModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="successModalLabel"
+            >
+              Успешно
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Закрыть"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p id="successModalMessage">Действие успешно выполнено.</p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-dismiss="modal"
+            >
+              Закрыть
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      type="module"
+      src="assets/js/config.js"
+    ></script>
+    <script src="assets/js/branches.js"></script>
+  </body>
+</html>
