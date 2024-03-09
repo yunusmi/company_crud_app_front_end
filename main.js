@@ -13,12 +13,21 @@ function createWindow() {
 
   win.loadFile('src/index.html');
 
-  //   win.webContents.on('before-input-event', (event, input) => {
-  //     if (input.control && input.shift && input.key === 'I') {
-  //       event.preventDefault();
-  //     }
-  //   });
-  win.webContents.openDevTools();
+  /**
+   * 1) To turn on Dev tools, comment the line below and uncomment other second line after
+   */
+
+  win.webContents.on('before-input-event', (event, input) => {
+    if (input.control && input.shift && input.key === 'I') {
+      event.preventDefault();
+    }
+  });
+
+  /**
+   * 2) To turn on Dev tools, uncomment the line below
+   */
+
+  // win.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
