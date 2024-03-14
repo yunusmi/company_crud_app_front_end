@@ -1,5 +1,5 @@
 {
-  "name": "Company-CRUD-application",
+  "name": "company-crud-application",
   "version": "1.0.2",
   "description": "Frontend application to manage company's data on remote server",
   "main": "main.js",
@@ -13,11 +13,11 @@
   "license": "MIT",
   "devDependencies": {
     "api": "^6.0.0",
-    "electron": "^25.2.0",
-    "electron-builder": "^24.6.4"
+    "electron": "^29.1.4",
+    "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "crud.app.api",
+    "appId": "company.crud.app",
     "productName": "Client to manage company CRUD operations",
     "directories": {
       "output": "dist"
