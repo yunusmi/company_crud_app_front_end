@@ -1,15 +1,13 @@
 {
-  "name": "company-crud-application",
+  "name": "company-data-management",
   "version": "1.0.2",
-  "description": "Frontend application to manage company's data on remote server",
+  "description": "FrontEnd client for Company Data management on remote server",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
-  "keywords": [],
-  "author": "",
   "license": "MIT",
   "devDependencies": {
     "api": "^6.0.0",
@@ -17,13 +15,22 @@
     "electron-builder": "^24.13.3"
   },
   "build": {
-    "appId": "company.crud.app",
-    "productName": "Frontend application to manage company's data on remote server",
+    "appId": "company.data.management",
+    "productName": "Company data management",
     "directories": {
       "output": "dist"
     },
     "win": {
       "target": "nsis"
     }
-  }
+  },
+  "author": "Yunus Ashyrov <contact@yunus-mil.ru> (https://github.com/yunusmi)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yunusmi/company_crud_app_front_end.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yunusmi/company_crud_app_front_end/issues"
+  },
+  "homepage": "https://github.com/yunusmi/company_crud_app_front_end#readme"
 }
