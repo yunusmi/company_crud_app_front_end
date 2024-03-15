@@ -22,6 +22,12 @@
     },
     "win": {
       "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
     }
   },
   "author": "Yunus Ashyrov <contact@yunus-mil.ru> (https://github.com/yunusmi)",

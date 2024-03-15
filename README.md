@@ -50,7 +50,9 @@
 
 <p>After completing all the settings above, start the process of compiling the FrontEnd application into a desktop cross-platform application with the following command:</p>
 
-<pre><code>npm run pack
+<pre><code>npm run dist
 </code></pre>
 
-<p>Next, the process of downloading additional dependencies for compilation and creating an installation file for the application will begin. After compilation is complete, an installation file will appear in the <b>dist/</b> folder with filename <b>Company data management.exe</b>, which can be opened to run the application installation or shared online. By default, the system will use <a href="https://en.wikipedia.org/wiki/Nullsoft_Scriptable_Install_System" target="_blank">NSIS (Nullsoft Scriptable Install System)</a> for the application installation file.</p>
+<p><b>Note:</b> For the successful completion of the compilation process, it is recommended to execute this command with administrator privileges, as scripts and dependencies used during compilation require administrator rights to execute.</p>
+
+<p>Subsequently, the process will initiate the download of additional dependencies for compilation and the creation of the installation file for the application. Upon completion of the compilation, an installation file <b>Company data management Setup</b> will appear in the <b>dist/</b> folder. This file can be opened to initiate the application installation or shared online. For Windows operating systems, by default, the system will utilize <a href="https://en.wikipedia.org/wiki/Nullsoft_Scriptable_Install_System" target="_blank">NSIS (Nullsoft Scriptable Install System)</a> for the application's installation file. The installation file is generated for the environment in which it is compiled. For example, if you compile the project on a Windows operating system, the installation file will be created only for Windows operating systems and will have the extension <b>.exe</b>. Similarly, if compiled on Linux, an installation file for the Linux operating system will be generated with the <b>.AppImage</b> extension, and so forth.</p>
