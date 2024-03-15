@@ -18,7 +18,7 @@
   },
   "build": {
     "appId": "company.crud.app",
-    "productName": "Client to manage company CRUD operations",
+    "productName": "Frontend application to manage company's data on remote server",
     "directories": {
       "output": "dist"
     },
