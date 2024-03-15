@@ -16,28 +16,24 @@
 
 <p>Для начала настройки приложения, необходимо создать папку для проекта и затем склонировать репозиторий данного проекта командой:</p>
 
-<pre><code>
-    git clone https://github.com/yunusmi/company_crud_app_front_end.git .
+<pre><code>git clone https://github.com/yunusmi/company_crud_app_front_end.git .
 </code></pre>
 
 <p>Затем нужно установить зависимости:</p>
 
-<pre><code>
-    npm install
+<pre><code>npm install
 </code></pre>
 
 <p>После установки зависимостей, нужно отредактировать файл конфигурации (файл config.js в корневом каталоге проекта). Там нужно вставить в переменную <b>serverIp</b> адрес (IP адрес или доменное имя) и порт сервера, на котором развернута BackEnd часть приложения (см. <a href="https://github.com/yunusmi/company_crud_app_backend/blob/master/README_RU.md" target="_blank">инструкцию по установке и настройке</a> BackEnd части на сервере).</p>
 
 <p>К примеру:</p>
 
-<pre><code>
-    const serverIp = 'http://YOUR_CONFIGURED_SERVER_ADDRESS:APP_PORT/api/v1';
+<pre><code>const serverIp = 'http://YOUR_CONFIGURED_SERVER_ADDRESS:APP_PORT/api/v1';
 </code></pre>
 
 <p>Далее, можно запустить приложение командой:</p>
 
-<pre><code>
-    npm run start
+<pre><code>npm run start
 </code></pre>
 
 <p>Откроется приложение, которое будет отправлять запросы на сервер и получать ответы от него и отображать их на экране. Чтобы включить режим отладки приложения, расскомментируйте строки с 28 по 32 и 38-ю строки в файле <b>main.js</b>. Это позволит включить выводы ошибок в консоль, а также сделать отладку в окне приложения (<b>команда Ctrl + Shift + I</b> откроет консоль и режим отладки).</p>
@@ -54,8 +50,7 @@
 
 <p>После завершения всех настроек выше, запустите процесс компиляции FrontEnd приложения в настольное кроссплатформенное приложение командой:</p>
 
-<pre><code>
-    npm run pack
+<pre><code>npm run pack
 </code></pre>
 
 <p>Далее начнется процесс загрузки дополнительных зависимостей для компиляции и создания установочного файла приложения. После завершения компиляции, в папке <b>dist/</b> появится установочный файл <b>Company data management.exe</b>, который можно открыть для запуска установки приложения или поделиться им в интернете. По умолчанию, система будет использовать <a href="https://ru.wikipedia.org/wiki/Nullsoft_Scriptable_Install_System" target="_blank">NSIS (Nullsoft Scriptable Install System)</a> для установочного файла приложения.</p>
