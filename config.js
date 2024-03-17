@@ -1,13 +1,13 @@
 /**
- * Put here your server IP address & port
+ * Вставьте здесь IP адрес или доменное имя, также порт удаленного сервера BackEnd приложения
  *
- * Example:
+ * Например:
  *
  * const serverIp = 'http://SERVER_IP_OR_DOMAIN:APP_PORT/api/v1';
  *
- * For localhost use, you can put this exmple:
+ * Если BackEnd приложения запущена на локальном сервере, то вставьте следующую строку:
  *
- * const serverIp = 'http://127.0.0.1:3001/api/v1';
+ * const serverIp = 'http://127.0.0.1:3000/api/v1';
  *
  */
 
