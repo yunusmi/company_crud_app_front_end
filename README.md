@@ -1,4 +1,4 @@
-<p>Документация <b>на русском</b> <a href="[text](https://github.com/yunusmi/company_crud_app_front_end/blob/master/README_RU.md)">здесь</a></p>
+<p>Документация <b>на русском</b> <a href="https://github.com/yunusmi/company_crud_app_front_end/blob/master/README_RU.md">здесь</a></p>
 
 <h1>FrontEnd Client for Company Data Management</h1>
 
