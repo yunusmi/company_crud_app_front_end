@@ -1,3 +1,5 @@
+<p>Документация <b>на русском</b> <a href="[text](https://github.com/yunusmi/company_crud_app_front_end/blob/master/README_RU.md)">здесь</a></p>
+
 <h1>FrontEnd Client for Company Data Management</h1>
 
 <p>This application represents a FrontEnd client for managing company data such as employees, sales, products, and branches. The project is developed using HTML/CSS3, JavaScript, jQuery, and Bootstrap 4. Upon configuration completion, the project is compiled into a desktop cross-platform application using the <a href="https://www.electronjs.org/" target="_blank">Electron JS library</a>. The client and server interact via HTTP protocol, with a REST API architectural style in JSON format.</p>
