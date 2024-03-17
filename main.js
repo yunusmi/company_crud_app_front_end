@@ -7,7 +7,8 @@ function createWindow() {
     height: 900,
 
     /**
-     * 1) To put icon for your client, uncomment the line below and paste to the directory assets your icon and write the icon name here
+     * 1) Чтобы вставить вашу иконку приложения вместо дефолтной, расскомментируйте строку ниже и вставьте название файла иконки
+     * Иконка должна находиться в директории assets или же поменяйте путь к файлу иконки
      */
 
     // icon: path.join(__dirname, 'assets', 'icon.png'),
@@ -22,17 +23,17 @@ function createWindow() {
   win.loadFile('src/index.html');
 
   /**
-   * 2) To turn on Dev tools, comment the line below and uncomment other second line after
+   * 2) Чтобы включить инструменты разработки (Dev Tools), расскомментируйте строку ниже и затем другую после
    */
 
-  win.webContents.on('before-input-event', (event, input) => {
-    if (input.control && input.shift && input.key === 'I') {
-      event.preventDefault();
-    }
-  });
+  // win.webContents.on('before-input-event', (event, input) => {
+  //   if (input.control && input.shift && input.key === 'I') {
+  //     event.preventDefault();
+  //   }
+  // });
 
   /**
-   * 3) To turn on Dev tools, uncomment the line below
+   * 3) Чтобы включить инструменты разработки (Dev Tools), расскомментируйте строку ниже
    */
 
   // win.webContents.openDevTools();
@@ -40,8 +41,6 @@ function createWindow() {
 
 app.whenReady().then(() => {
   createWindow();
-
-  globalShortcut.register('CommandOrControl+Shift+I', () => {});
 });
 
 app.on('window-all-closed', function () {
